@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Example of IListener class for Event Managment stuff
 /// so, the ammo and health are used
-/// tooken from book
+/// from book Mastering Unity Scripting
 /// </summary>
 public enum EVENT_TYPE {
 	GAME_INIT,

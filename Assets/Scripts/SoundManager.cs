@@ -13,7 +13,8 @@ public class SoundManager : MonoBehaviour {
 	void Awake() {
 		if ( Instance == null ) {
 			Instance = this;
-		} else if ( Instance != this ) {
+		}
+		else if ( Instance != this ) {
 			Destroy( gameObject );
 		}
 
@@ -30,7 +31,7 @@ public class SoundManager : MonoBehaviour {
 		float randomPitch = Random.Range( LowPitchRange, HighPitchRange );
 
 		EfxSource.pitch = randomPitch;
-		EfxSource.clip = clips[randomIndex];
+		EfxSource.clip = clips[ randomIndex ];
 		EfxSource.Play();
 	}
 

@@ -14,7 +14,7 @@ public class ScreenShooter : MonoBehaviour {
 			while ( System.IO.File.Exists( "ScreenShot_" + _count + "_" + Screen.width + "x" + Screen.height + ".png" ) ) {
 				_count++;
 			}
-			Application.CaptureScreenshot( "ScreenShot_" + _count + "_" + Screen.width + "x" + Screen.height +  ".png" );
+			Application.CaptureScreenshot( "ScreenShot_" + _count + "_" + Screen.width + "x" + Screen.height + ".png" );
 		}
 	}
 }

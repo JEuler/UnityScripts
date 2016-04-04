@@ -3,23 +3,23 @@ using UnityEngine.UI;
 
 // Credits to http://catlikecoding.com/unity/tutorials/frames-per-second/
 
-[RequireComponent(typeof(FPSCounter))]
+[RequireComponent( typeof( FPSCounter ) )]
 public class FPSDisplay : MonoBehaviour {
 
-    [System.Serializable]
-    // Different colors for the counter;
+	[System.Serializable]
+	// Different colors for the counter;
 	private struct FPSColor {
 		public Color color;
 		public int minimumFPS;
 	}
-    
-    
-    // Actually the colors;
-    [SerializeField]
+
+
+	// Actually the colors;
+	[SerializeField]
 	private FPSColor[] coloring;
-    
-    // Preventing GC from madness by statically created strings.
-    static string[] stringsFrom00To99 = {
+
+	// Preventing GC from madness by statically created strings.
+	static string[] stringsFrom00To99 = {
 		"00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
 		"10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
 		"20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
@@ -31,28 +31,28 @@ public class FPSDisplay : MonoBehaviour {
 		"80", "81", "82", "83", "84", "85", "86", "87", "88", "89",
 		"90", "91", "92", "93", "94", "95", "96", "97", "98", "99"
 	};
-    
-	// Assign your Text here to display counter properly;
-    public Text highestFPSLabel, averageFPSLabel, lowestFPSLabel;
-    
-    // Created class in file FPSCounter.cs
-    FPSCounter fpsCounter;
 
-	void Awake () {
+	// Assign your Text here to display counter properly;
+	public Text highestFPSLabel, averageFPSLabel, lowestFPSLabel;
+
+	// Created class in file FPSCounter.cs
+	FPSCounter fpsCounter;
+
+	void Awake() {
 		fpsCounter = GetComponent<FPSCounter>();
 	}
 
-	void Update () {
-		Display(highestFPSLabel, fpsCounter.HighestFPS);
-		Display(averageFPSLabel, fpsCounter.AverageFPS);
-		Display(lowestFPSLabel, fpsCounter.LowestFPS);
+	void Update() {
+		Display( highestFPSLabel, fpsCounter.HighestFPS );
+		Display( averageFPSLabel, fpsCounter.AverageFPS );
+		Display( lowestFPSLabel, fpsCounter.LowestFPS );
 	}
 
-	void Display (Text label, int fps) {
-		label.text = stringsFrom00To99[Mathf.Clamp(fps, 0, 99)];
-        for (int i = 0; i < coloring.Length; i++) {
-			if (fps >= coloring[i].minimumFPS) {
-				label.color = coloring[i].color;
+	void Display( Text label, int fps ) {
+		label.text = stringsFrom00To99[ Mathf.Clamp( fps, 0, 99 ) ];
+		for ( int i = 0; i < coloring.Length; i++ ) {
+			if ( fps >= coloring[ i ].minimumFPS ) {
+				label.color = coloring[ i ].color;
 				break;
 			}
 		}
